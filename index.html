@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Careless &mdash; careless</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="shortcut icon" href="_static/rs-favicon_32x32.png"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=943c5b23"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="The careless command-line interface" href="careless.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            careless
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="careless.html">careless CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stats.html">Other utilites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="double_wilson.html">The &quot;Double Wilson&quot; algorithm</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">careless</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Careless</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.md" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="careless">
+<h1>Careless<a class="headerlink" href="#careless" title="Link to this heading"></a></h1>
+<p>Merging crystallography data without much physics.</p>
+<p><img alt="Build" src="https://github.com/rs-station/careless/workflows/Build/badge.svg" />
+<a class="reference external" href="https://codecov.io/gh/rs-station/careless"><img alt="codecov" src="https://codecov.io/gh/rs-station/careless/branch/main/graph/badge.svg" /></a>
+<a class="reference external" href="https://pypi.org/project/careless/"><img alt="PyPI" src="https://img.shields.io/pypi/v/careless?color=blue" /></a>
+<a class="reference external" href="https://doi.org/10.1038/s41467-022-35280-8"><img alt="DOI" src="http://img.shields.io/badge/nature_comms-purple.svg" /></a></p>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
+<p>As described in the <a class="reference external" href="https://www.tensorflow.org/install/pip#step-by-step_instructions">TensorFlow docs</a>, it is best practice to install <code class="docutils literal notranslate"><span class="pre">careless</span></code> in a fresh <a class="reference external" href="https://www.anaconda.com/products/distribution">anaconda</a> environment to avoid conflicts with previously installed dependencies.</p>
+<p>Create a new environment and install <code class="docutils literal notranslate"><span class="pre">careless</span></code> using the following commands.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>-yn<span class="w"> </span>careless<span class="w"> </span>python
+conda<span class="w"> </span>activate<span class="w"> </span>careless
+pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip
+pip<span class="w"> </span>install<span class="w"> </span>careless
+</pre></div>
+</div>
+</section>
+<section id="installation-with-gpu-support">
+<h2>Installation with GPU Support<a class="headerlink" href="#installation-with-gpu-support" title="Link to this heading"></a></h2>
+<p>Careless supports GPU acceleration on NVIDIA GPUs. For users who would like to run <code class="docutils literal notranslate"><span class="pre">careless</span></code> in a cluster computing environment, requesting an interactive GPU node for the installation might be helpful. You may want to first follow the latest <a class="reference external" href="https://www.tensorflow.org/install/pip#step-by-step_instructions">Tensorflow installation instructions</a> and then install <code class="docutils literal notranslate"><span class="pre">careless</span></code>. Specifically,</p>
+<ol class="arabic">
+<li><p>Create and activate a new environment with the appropriate Python version</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>-yn<span class="w"> </span>careless<span class="w"> </span><span class="nv">python</span><span class="o">=</span>checktheversion
+conda<span class="w"> </span>activate<span class="w"> </span>careless
+pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pip
+</pre></div>
+</div>
+</li>
+<li><p>Install dependencies for GPU support (see the following paragraph)</p></li>
+<li><p>Install TensorFlow (and verify its GPU support)</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span><span class="nv">tensorflow</span><span class="o">==</span>checktheversion
+<span class="c1">#check that tensorflow sees the correct number of GPUs</span>
+python3<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import tensorflow as tf; print(len(tf.config.list_physical_devices(&#39;GPU&#39;)))&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Install <code class="docutils literal notranslate"><span class="pre">careless</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>careless
+</pre></div>
+</div>
+</li>
+</ol>
+<p>The following dependencies are required for GPU support</p>
+<ul class="simple">
+<li><p>NVIDIA driver,</p></li>
+<li><p>CUDA Toolkit, and</p></li>
+<li><p>cuDNN.</p></li>
+</ul>
+<p>You can determine the versions required by the latest TensorFlow release from the <a class="reference external" href="https://www.tensorflow.org/install/pip#software_requirements">TensorFlow docs</a>. The driver is usually installed through the system package manager and will require root privileges. In a cluster computing environment, a suitable version of the NVIDIA driver will usually be provided by your system administrators. The two libraries, CUDA toolkit and cuDNN, may either be installed through the system package manager or using the Anaconda python distribution as described in the <a class="reference external" href="https://www.tensorflow.org/install/pip#step-by-step_instructions">TensorFlow docs</a>.</p>
+<p>You may confirm GPU acceleration is active using the <code class="docutils literal notranslate"><span class="pre">nvidia-smi</span></code> command to monitor GPU usage during model training. If you are having trouble enabling GPU support, you may want to use the <code class="docutils literal notranslate"><span class="pre">--tf-debug</span></code> flag during training for verbose logging of TensorFlow issues.</p>
+</section>
+<section id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">careless</span></code> is likely to run on any operating system which is compatible with TensorFlow.
+<code class="docutils literal notranslate"><span class="pre">careless</span></code> currently supports <strong>Python 3.8 - 3.10</strong>.
+Pip will handle installation of all dependencies.
+<code class="docutils literal notranslate"><span class="pre">careless</span></code> uses mostly tools from the conventional scientific python stack plus</p>
+<ul class="simple">
+<li><p>optimization routines from <a class="reference external" href="https://www.tensorflow.org/">TensorFlow</a></p></li>
+<li><p>statistical distributions from <a class="reference external" href="https://www.tensorflow.org/probability">Tensorflow-Probability</a></p></li>
+<li><p>crystallographic computing resources from</p>
+<ul>
+<li><p><a class="reference external" href="https://rs-station.github.io/reciprocalspaceship/">ReciprocalSpaceship</a></p></li>
+<li><p><a class="reference external" href="https://gemmi.readthedocs.io/en/latest/">GEMMI</a></p></li>
+</ul>
+</li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">careless</span></code> does not require but may take advantage of various accelator cards supported by TensorFlow.</p>
+</section>
+<section id="get-help">
+<h2>Get Help<a class="headerlink" href="#get-help" title="Link to this heading"></a></h2>
+<p>For help with command line arguments, type <code class="docutils literal notranslate"><span class="pre">careless</span> <span class="pre">mono</span> <span class="pre">--help</span></code> for monochromatic or <code class="docutils literal notranslate"><span class="pre">careless</span> <span class="pre">poly</span> <span class="pre">--help</span></code> for Laue processing options. You can also consult the online documentation for a list of all available parameters.</p>
+<p>For usage examples and data from the <a class="reference external" href="https://doi.org/10.1038/s41467-022-35280-8">publication</a>, check out <a class="reference external" href="https://github.com/rs-station/careless-examples">careless-examples</a></p>
+<p>Still confused? File an <a class="reference external" href="https://github.com/rs-station/careless/issues/new/choose">issue</a>! Issues help us improve our code base and leave a public record for other users.</p>
+</section>
+<section id="core-model">
+<h2>Core Model<a class="headerlink" href="#core-model" title="Link to this heading"></a></h2>
+<p><img alt="pgm" src="_images/pgm.svg" /></p>
+<p><code class="docutils literal notranslate"><span class="pre">careless</span></code> uses approximate Bayesian inference to merge X-ray diffraction data.
+The model which is implemented in <code class="docutils literal notranslate"><span class="pre">careless</span></code> tries to scale individual reflection observations such that they become consistent with a set of prior beliefs.
+During optimization of a model, <code class="docutils literal notranslate"><span class="pre">careless</span></code> trades off between consistency of the merged structure factor amplitudes with the data and consistency with the priors.
+In essence, the optimizer tries to strike a compromise which maximizes the likelihood of the observed data while not straying far from the prior distributions.</p>
+<p>The implementation breaks the model down into 4 types of objects.</p>
+<section id="variational-merging-model">
+<h3>Variational Merging Model<a class="headerlink" href="#variational-merging-model" title="Link to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">VariationalMergingModel</span></code> is central object which houses the estimates of the merged structure factors.
+In <code class="docutils literal notranslate"><span class="pre">careless</span></code> merged structure factors are represented by truncated normal distributions which have support on (0, ∞).
+According to French and Wilson<sup><a class="reference internal" href="#frenchwilson"><span class="xref myst">2</span></a></sup> this is the appropriate parameterization for acentric reflections which are by far the majority in most space groups.
+These distributions are stored in the <code class="docutils literal notranslate"><span class="pre">VariationalMergingModel.surrogate_posterior</span></code> attribute.
+They serve as a parametric approximation of the true posterior which cannot easily be calculated.
+It has utility methods for training the model.
+It contains an instance of each of the other objects.
+During optimization, the loss function is constructed by sampling values for the merged structure factors and scales these are combined with the prior and likelihood to compute the <code class="docutils literal notranslate"><span class="pre">Evidence</span> <span class="pre">Lower</span> <span class="pre">BOund</span></code> or (<code class="docutils literal notranslate"><span class="pre">ELBO</span></code>)
+Gradiennt ascent is used to maximize the <code class="docutils literal notranslate"><span class="pre">ELBO</span></code>.</p>
+</section>
+<section id="priors">
+<h3>Priors<a class="headerlink" href="#priors" title="Link to this heading"></a></h3>
+<p>The simplest prior which <code class="docutils literal notranslate"><span class="pre">careless</span></code> implements are the popular priors<sup><a class="reference internal" href="#wilson"><span class="xref myst">1</span></a></sup> derived by A. J. C. Wilson from the random atom model.
+This is a relatively weak prior, but it is sufficient in practice for many types of crystallographic data.
+<code class="docutils literal notranslate"><span class="pre">careless</span></code> will include support for reference and multivariate priors in future releases.</p>
+</section>
+<section id="likelihoods">
+<h3>Likelihoods<a class="headerlink" href="#likelihoods" title="Link to this heading"></a></h3>
+<p>The quality of the current structure factor estimates during optimization is judged by a likelihood function.
+These are symmetric probability distributions centered at the observed reflection observation.
+<code class="docutils literal notranslate"><span class="pre">careless</span></code> includes normally-distributed and robust, t-distributed likelihoods.</p>
+</section>
+<section id="scaling-models">
+<h3>Scaling Models<a class="headerlink" href="#scaling-models" title="Link to this heading"></a></h3>
+<p>Right now the only model which <code class="docutils literal notranslate"><span class="pre">careless</span></code> explicitly implements is a sequential neural network model.
+This model takes reflection metadata as input and outputs a gaussian distribution of likely scale values for each reflection.</p>
+<p>Special metadata keys for scaling.
+<code class="docutils literal notranslate"><span class="pre">careless</span></code> will parse any existing metadata keys in the input Mtz(s).
+During configuration some new metadata keys will be populated that are useful in many instances.</p>
+<ul class="simple">
+<li><p><b>dHKL</b> : The inverse square of the reflection resolution. Supplying this key is a convenient way to parameterize isotropic scaling.</p></li>
+<li><p><b>file_id</b> : An integer ID unique to each input Mtz.</p></li>
+<li><p><b>image_id</b> : An integer ID unique to each image across all input Mtzs.</p></li>
+<li><p><b>{H,K,L}obs</b> : Internally, <code class="docutils literal notranslate"><span class="pre">careless</span></code> refers to the original miller indices from indexing as <code class="docutils literal notranslate"><span class="pre">Hobs</span></code>, <code class="docutils literal notranslate"><span class="pre">Kobs</span></code>, and <code class="docutils literal notranslate"><span class="pre">Lobs</span></code>. Supplying these three keys is the typical method to enable anisotropic scaling.</p></li>
+</ul>
+</section>
+<section id="considerations-when-choosing-metadata">
+<h3>Considerations when choosing metadata.<a class="headerlink" href="#considerations-when-choosing-metadata" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><b>Polarization correction</b> : Careless does not apply a specific polarization correction.
+In order to be sure the model accounts for polarization, it is important to supply the x,y
+coordinates of each reflection observation.</p></li>
+<li><p><b>Isotropic scaling</b> : This is easily accounted for by supplying the ‘dHKL’ metadata key.</p></li>
+<li><p><b>Interleaved rotation series</b> : Most properly formatted Mtzs have a “Batch” column which contains a unique id for each image.
+Importantly, these are usually in order. If you have time resolved data with multiple timepoints per angle, you may
+want to use the “Batch” key in conjunction with the “file_id” key. This way images from the same rotation angle will
+be constrained to scale more similarly.</p></li>
+<li><p><b>Multi crystal scaling</b> : For scaling multiple crystals, it is best if image identifiers in the metadata do not overlap. Therefore, use the ‘image_id’ key.</p></li>
+</ul>
+<p><a name="wilson">1</a>: Wilson, A. J. C. “The Probability Distribution of X-Ray Intensities.” Acta Crystallographica 2, no. 5 (October 2, 1949): 318–21. https://doi.org/10.1107/S0365110X49000813.</p>
+<p><a name="frenchwilson">2</a>: French, S., and K. Wilson. “On the Treatment of Negative Intensity Observations.” Acta Crystallographica Section A: Crystal Physics, Diffraction, Theoretical and General Crystallography 34, no. 4 (July 1, 1978): 517–25. https://doi.org/10.1107/S0567739478001114.</p>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="careless.html" class="btn btn-neutral float-right" title="The careless command-line interface" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Kevin M. Dalton.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

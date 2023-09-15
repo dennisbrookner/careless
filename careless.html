@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The careless command-line interface &mdash; careless</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="shortcut icon" href="_static/rs-favicon_32x32.png"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=943c5b23"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Other utilites" href="stats.html" />
+    <link rel="prev" title="Careless" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            careless
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">careless CLI</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#careless">careless</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#careless-mono">careless mono</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#careless-poly">careless poly</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="stats.html">Other utilites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="double_wilson.html">The &quot;Double Wilson&quot; algorithm</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">careless</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">The careless command-line interface</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/careless.md" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="the-careless-command-line-interface">
+<h1>The careless command-line interface<a class="headerlink" href="#the-careless-command-line-interface" title="Link to this heading"></a></h1>
+<p>The core <code class="docutils literal notranslate"><span class="pre">careless</span></code> function has two versions - <code class="docutils literal notranslate"><span class="pre">careless</span> <span class="pre">mono</span></code> for monochromatic data, and <code class="docutils literal notranslate"><span class="pre">careless</span> <span class="pre">poly</span></code> for polychromatic data. All command-line options for both functions are documented below.</p>
+<section id="careless">
+<h2>careless<a class="headerlink" href="#careless" title="Link to this heading"></a></h2>
+<p>Scale and merge crystallographic data by</p>
+<blockquote>
+<div><p>approximate inference.</p>
+</div></blockquote>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">usage: careless [-h] [--version] {mono,poly} ...</span>
+</pre></div>
+</div>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-h">
+<span id="cmdoption-careless-help"></span><span class="sig-name descname"><span class="pre">-h</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--help</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-careless-h" title="Link to this definition"></a></dt>
+<dd><p>show this help message and exit</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-version">
+<span class="sig-name descname"><span class="pre">--version</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-careless-version" title="Link to this definition"></a></dt>
+<dd><p>show program’s version number and exit</p>
+</dd></dl>
+
+<section id="careless-mono">
+<h3>careless mono<a class="headerlink" href="#careless-mono" title="Link to this heading"></a></h3>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">usage: careless mono [-h] [--embed] [--mc-samples MC_SAMPLES]</span>
+<span class="go">                     [--structure-factor-file STRUCTURE_FACTOR_FILE]</span>
+<span class="go">                     [--freeze-structure-factors]</span>
+<span class="go">                     [--structure-factor-init-scale STRUCTURE_FACTOR_INIT_SCALE]</span>
+<span class="go">                     [--epsilon EPSILON] [--disable-metadata-standardization]</span>
+<span class="go">                     [--disable-progress-bar] [--test-fraction TEST_FRACTION]</span>
+<span class="go">                     [--merge-half-datasets]</span>
+<span class="go">                     [--half-dataset-repeats HALF_DATASET_REPEATS]</span>
+<span class="go">                     [--validation-frequency VALIDATION_FREQUENCY]</span>
+<span class="go">                     [-c ISIGI_CUTOFF] [-d DMIN] [--spacegroups SPACEGROUPS]</span>
+<span class="go">                     [--image-key IMAGE_KEY] [--intensity-key INTENSITY_KEY]</span>
+<span class="go">                     [--uncertainty-key UNCERTAINTY_KEY] [--anomalous]</span>
+<span class="go">                     [--separate-files] [--studentt-likelihood-dof DOF]</span>
+<span class="go">                     [--refine-uncertainties] [--iterations ITERATIONS]</span>
+<span class="go">                     [--learning-rate LEARNING_RATE] [--beta-1 BETA_1]</span>
+<span class="go">                     [--beta-2 BETA_2]</span>
+<span class="go">                     [--positional-encoding-keys POSITIONAL_ENCODING_KEYS]</span>
+<span class="go">                     [--positional-encoding-frequencies POSITIONAL_ENCODING_FREQUENCIES]</span>
+<span class="go">                     [--kl-weight KL_WEIGHT] [--wilson-prior-b WILSON_PRIOR_B]</span>
+<span class="go">                     [--double-wilson-r DWR] [--double-wilson-parents PARENTS]</span>
+<span class="go">                     [--scale-file SCALE_FILE] [--freeze-scales]</span>
+<span class="go">                     [--mlp-layers MLP_LAYERS] [--mlp-width MLP_WIDTH]</span>
+<span class="go">                     [--image-layers IMAGE_LAYERS] [--disable-image-scales]</span>
+<span class="go">                     [--run-eagerly] [--disable-gpu] [--gpu-id GPU_ID]</span>
+<span class="go">                     [--disable-memory-growth] [--tf-debug] [--seed SEED]</span>
+<span class="go">                     metadata_keys reflections.{mtz,stream}</span>
+<span class="go">                     [reflections.{mtz,stream} ...] out</span>
+</pre></div>
+</div>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-mono-arg-metadata_keys">
+<span class="sig-name descname"><span class="pre">metadata_keys</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-careless-mono-arg-metadata_keys" title="Link to this definition"></a></dt>
+<dd><p>Metadata keys for scaling. This is expected to be a comma delimitted string</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-mono-arg-reflections">
+<span class="sig-name descname"><span class="pre">reflections</span></span><span class="sig-prename descclassname"><span class="pre">.{mtz,stream}</span></span><a class="headerlink" href="#cmdoption-careless-mono-arg-reflections" title="Link to this definition"></a></dt>
+<dd><p>Mtz or stream file(s) containing unmerged reflection observations. If you are supplying stream files, you must also use the –spacegroups option to supply the symmetry for merging.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-mono-arg-out">
+<span class="sig-name descname"><span class="pre">out</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-careless-mono-arg-out" title="Link to this definition"></a></dt>
+<dd><p>Output filename base.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-mono-h">
+<span id="cmdoption-careless-mono-help"></span><span class="sig-name descname"><span class="pre">-h</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--help</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-careless-mono-h" title="Link to this definition"></a></dt>
+<dd><p>show this help message and exit</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-mono-embed">
+<span class="sig-name descname"><span class="pre">--embed</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-careless-mono-embed" title="Link to this definition"></a></dt>
+<dd><p>Drop to an IPython shell at the end of optimization to inpsect variables.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-mono-mc-samples">
+<span class="sig-name descname"><span class="pre">--mc-samples</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;mc_samples&gt;</span></span><a class="headerlink" href="#cmdoption-careless-mono-mc-samples" title="Link to this definition"></a></dt>
+<dd><p>This is the number of samples to take per gradient step with default 1.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-mono-structure-factor-file">
+<span class="sig-name descname"><span class="pre">--structure-factor-file</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;structure_factor_file&gt;</span></span><a class="headerlink" href="#cmdoption-careless-mono-structure-factor-file" title="Link to this definition"></a></dt>
+<dd><p>Initialize the structure factors from the ouput of a previous run. This argument should be a string beginning with the base filename used in the previous run and ending in _structure_factor.  For instance, if the previous run was called with <code class="xref py py-obj docutils literal notranslate"><span class="pre">careless</span> <span class="pre">mono</span> <span class="pre">[...]</span> <span class="pre">merge/hewl</span></code>, the appropriate filename to use would be merge/hewl_structure_factor.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-mono-freeze-structure-factors">
+<span class="sig-name descname"><span class="pre">--freeze-structure-factors</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-careless-mono-freeze-structure-factors" title="Link to this definition"></a></dt>
+<dd><p>Do not optimize the structure factors.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-mono-structure-factor-init-scale">
+<span class="sig-name descname"><span class="pre">--structure-factor-init-scale</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;structure_factor_init_scale&gt;</span></span><a class="headerlink" href="#cmdoption-careless-mono-structure-factor-init-scale" title="Link to this definition"></a></dt>
+<dd><p>A floating point number usually between 0 and 1. The width of the initial structure factor distribution is this timesthe standard deviation of the prior distribution. The default is 1.0.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-mono-epsilon">
+<span class="sig-name descname"><span class="pre">--epsilon</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;epsilon&gt;</span></span><a class="headerlink" href="#cmdoption-careless-mono-epsilon" title="Link to this definition"></a></dt>
+<dd><p>A small constant added to the scale parameters of variational distributions  for numerical stability. The default is 1e-7.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-mono-disable-metadata-standardization">
+<span class="sig-name descname"><span class="pre">--disable-metadata-standardization</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-careless-mono-disable-metadata-standardization" title="Link to this definition"></a></dt>
+<dd><p>By default careless will convert metadata to z-scores. This flag disables that behavior. In general, unstandardized metadata will lead to unstable optimization. However, this flag might be useful if the user wants to use their own normalization scheme.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-mono-disable-progress-bar">
+<span class="sig-name descname"><span class="pre">--disable-progress-bar</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-careless-mono-disable-progress-bar" title="Link to this definition"></a></dt>
+<dd><p>Disable the progress bar. This is helpful if you’re logging stderr.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-mono-test-fraction">
+<span class="sig-name descname"><span class="pre">--test-fraction</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;test_fraction&gt;</span></span><a class="headerlink" href="#cmdoption-careless-mono-test-fraction" title="Link to this definition"></a></dt>
+<dd><p>Output model predictions for a held-out fraction of data. This should be used for model selection purposes. By default, no data will be held out during training.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-mono-merge-half-datasets">
+<span class="sig-name descname"><span class="pre">--merge-half-datasets</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-careless-mono-merge-half-datasets" title="Link to this definition"></a></dt>
+<dd><p>After training, split the data in half randomly by image and merge each half using the scaling model learned on the training fraction. The output of the halves will be written to a file which can be used to estimate traditional CChalf type measures. The full data set will always be used to generate half data sets irrespective of the test fraction. One file is written for each merged mtz. The files have the <a href="#id1"><span class="problematic" id="id2">*</span></a>_xval_#.mtz suffix.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-mono-half-dataset-repeats">
+<span class="sig-name descname"><span class="pre">--half-dataset-repeats</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;half_dataset_repeats&gt;</span></span><a class="headerlink" href="#cmdoption-careless-mono-half-dataset-repeats" title="Link to this definition"></a></dt>
+<dd><p>Number of times to Repeat the half dataset crossvalidation. By default this is one.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-mono-validation-frequency">
+<span class="sig-name descname"><span class="pre">--validation-frequency</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;validation_frequency&gt;</span></span><a class="headerlink" href="#cmdoption-careless-mono-validation-frequency" title="Link to this definition"></a></dt>
+<dd><p>During training, set how frequently to evaluate the model on the test set. This is an integer &gt;= 1 which defaults to 10 for once every 10 steps.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-mono-c">
+<span id="cmdoption-careless-mono-isigi-cutoff"></span><span class="sig-name descname"><span class="pre">-c</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;isigi_cutoff&gt;</span></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--isigi-cutoff</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;isigi_cutoff&gt;</span></span><a class="headerlink" href="#cmdoption-careless-mono-c" title="Link to this definition"></a></dt>
+<dd><p>Minimum I over Sigma(I) for included reflections. Default is to include all reflections</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-mono-d">
+<span id="cmdoption-careless-mono-dmin"></span><span class="sig-name descname"><span class="pre">-d</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;dmin&gt;</span></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--dmin</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;dmin&gt;</span></span><a class="headerlink" href="#cmdoption-careless-mono-d" title="Link to this definition"></a></dt>
+<dd><p>Maximum resolution in Ångstroms. If this is not supplied,reflections will be merged out to the highest resolution reflection present in the input.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-mono-spacegroups">
+<span class="sig-name descname"><span class="pre">--spacegroups</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;spacegroups&gt;</span></span><a class="headerlink" href="#cmdoption-careless-mono-spacegroups" title="Link to this definition"></a></dt>
+<dd><p>The spacegroup(s) to use for merging. You may either supply a single spacegroup which will be used for every input reflection file or a comma-separated list of spacegroups with the same length as the number of reflection files. For example –spacegroups=”P 21 21 21” or –spacegroups=”P 21 21 21,P 1 21 1”</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-mono-image-key">
+<span class="sig-name descname"><span class="pre">--image-key</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;image_key&gt;</span></span><a class="headerlink" href="#cmdoption-careless-mono-image-key" title="Link to this definition"></a></dt>
+<dd><p>The name of the key indicating image number for each data set. If no key is given, careless will use the first key with the BATCH dtype.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-mono-intensity-key">
+<span class="sig-name descname"><span class="pre">--intensity-key</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;intensity_key&gt;</span></span><a class="headerlink" href="#cmdoption-careless-mono-intensity-key" title="Link to this definition"></a></dt>
+<dd><p>What key to use for reflection intensities. If no key is given, careless will use the first key with the intensity dtype.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-mono-uncertainty-key">
+<span class="sig-name descname"><span class="pre">--uncertainty-key</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;uncertainty_key&gt;</span></span><a class="headerlink" href="#cmdoption-careless-mono-uncertainty-key" title="Link to this definition"></a></dt>
+<dd><p>What key to use for reflection error estimates. If no key is given, careless will first check for a key beginning with ‘SIG’ or ‘Sig’ which matches the intensity key (e.g. Iobs -&gt; SigIobs). Failing that, careless will ust first key with the StdDev dtype.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-mono-anomalous">
+<span class="sig-name descname"><span class="pre">--anomalous</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-careless-mono-anomalous" title="Link to this definition"></a></dt>
+<dd><p>If this flag is supplied, Friedel mates will be kept separate.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-mono-separate-files">
+<span class="sig-name descname"><span class="pre">--separate-files</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-careless-mono-separate-files" title="Link to this definition"></a></dt>
+<dd><p>Use this flag to produce a separate output for each input mtz.In this mode, the data will be ‘scaled’ together and ‘merged’ separately.The default is to merge all the files into a single output.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-mono-studentt-likelihood-dof">
+<span class="sig-name descname"><span class="pre">--studentt-likelihood-dof</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;dof&gt;</span></span><a class="headerlink" href="#cmdoption-careless-mono-studentt-likelihood-dof" title="Link to this definition"></a></dt>
+<dd><p>Degrees of freedom for student t likelihood function.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-mono-refine-uncertainties">
+<span class="sig-name descname"><span class="pre">--refine-uncertainties</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-careless-mono-refine-uncertainties" title="Link to this definition"></a></dt>
+<dd><p>Use Evans’ 2011 error model from SCALA to correct uncertainties.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-mono-iterations">
+<span class="sig-name descname"><span class="pre">--iterations</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;iterations&gt;</span></span><a class="headerlink" href="#cmdoption-careless-mono-iterations" title="Link to this definition"></a></dt>
+<dd><p>Number of gradient steps to take.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-mono-learning-rate">
+<span class="sig-name descname"><span class="pre">--learning-rate</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;learning_rate&gt;</span></span><a class="headerlink" href="#cmdoption-careless-mono-learning-rate" title="Link to this definition"></a></dt>
+<dd><p>Adam learning rate. The default is 0.001</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-mono-beta-1">
+<span class="sig-name descname"><span class="pre">--beta-1</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;beta_1&gt;</span></span><a class="headerlink" href="#cmdoption-careless-mono-beta-1" title="Link to this definition"></a></dt>
+<dd><p>Adam beta_1 param. The default is 0.9</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-mono-beta-2">
+<span class="sig-name descname"><span class="pre">--beta-2</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;beta_2&gt;</span></span><a class="headerlink" href="#cmdoption-careless-mono-beta-2" title="Link to this definition"></a></dt>
+<dd><p>Adam beta_2 param. The default is 0.99</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-mono-positional-encoding-keys">
+<span class="sig-name descname"><span class="pre">--positional-encoding-keys</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;positional_encoding_keys&gt;</span></span><a class="headerlink" href="#cmdoption-careless-mono-positional-encoding-keys" title="Link to this definition"></a></dt>
+<dd><p>If the <code class="xref py py-obj docutils literal notranslate"><span class="pre">--positional-encoding-frequencies</span></code> flag is set to an integer &gt; 1, this parameter enables encoding a specific subset ofof mtz columns. Supply a comma separated string of metadata keys (ie “XDET,YDET”), and these keys will be encoded separately and appended to the rest of the metadata.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-mono-positional-encoding-frequencies">
+<span id="cmdoption-careless-mono-L"></span><span class="sig-name descname"><span class="pre">--positional-encoding-frequencies</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;positional_encoding_frequencies&gt;</span></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">-L</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;positional_encoding_frequencies&gt;</span></span><a class="headerlink" href="#cmdoption-careless-mono-positional-encoding-frequencies" title="Link to this definition"></a></dt>
+<dd><p>Number of positional encoding frequencies to apply to metadata. If you use this option, it should be paired with ‘mlp-width=’ in order to prevent the model from using too much memory.By default all metadata columns will be encoded using the same formula. To encode a subset of the columns, please seethe <code class="xref py py-obj docutils literal notranslate"><span class="pre">--positional-encoding-keys</span></code> parameter</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-mono-kl-weight">
+<span class="sig-name descname"><span class="pre">--kl-weight</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;kl_weight&gt;</span></span><a class="headerlink" href="#cmdoption-careless-mono-kl-weight" title="Link to this definition"></a></dt>
+<dd><p>Set the weight of the kl divergence term relative to the likliehood. By default, by default this is based purely on the number of reflections.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-mono-wilson-prior-b">
+<span class="sig-name descname"><span class="pre">--wilson-prior-b</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;wilson_prior_b&gt;</span></span><a class="headerlink" href="#cmdoption-careless-mono-wilson-prior-b" title="Link to this definition"></a></dt>
+<dd><p>This flag enables learning reflections on a particular Wilson scale. By default, the Wilson prior is flat across resolution bins.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-mono-double-wilson-r">
+<span class="sig-name descname"><span class="pre">--double-wilson-r</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;dwr&gt;</span></span><a class="headerlink" href="#cmdoption-careless-mono-double-wilson-r" title="Link to this definition"></a></dt>
+<dd><p>For each input mtz, designate a prior correlation coefficient with its parent. Supply one float for each file separated by commas. Supply zero for each root node.for example, –double-wilson-r=0.,0.9.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-mono-double-wilson-parents">
+<span class="sig-name descname"><span class="pre">--double-wilson-parents</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;parents&gt;</span></span><a class="headerlink" href="#cmdoption-careless-mono-double-wilson-parents" title="Link to this definition"></a></dt>
+<dd><p>For each input mtz, designate a parent upon which its prior is conditioned. Supply one integer for each file separated by commas. Supply None for root nodeswhich follow single Wilson priors. for example, –double-wilson-parents=None,0</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-mono-scale-file">
+<span class="sig-name descname"><span class="pre">--scale-file</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;scale_file&gt;</span></span><a class="headerlink" href="#cmdoption-careless-mono-scale-file" title="Link to this definition"></a></dt>
+<dd><p>Initialize the scale model weights from the ouput of a previous run. This argument should be a string beginning with the base filename used in the previous run and ending in _scale.  For instance, if the previous run was called with <code class="xref py py-obj docutils literal notranslate"><span class="pre">careless</span> <span class="pre">mono</span> <span class="pre">[...]</span> <span class="pre">merge/hewl</span></code>, the appropriate file name would be merge/hewl_scale.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-mono-freeze-scales">
+<span class="sig-name descname"><span class="pre">--freeze-scales</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-careless-mono-freeze-scales" title="Link to this definition"></a></dt>
+<dd><p>Do not optimize the scale model weights.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-mono-mlp-layers">
+<span class="sig-name descname"><span class="pre">--mlp-layers</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;mlp_layers&gt;</span></span><a class="headerlink" href="#cmdoption-careless-mono-mlp-layers" title="Link to this definition"></a></dt>
+<dd><p>The number of dense neural network layers in the scaling model. The default is 20 layers.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-mono-mlp-width">
+<span class="sig-name descname"><span class="pre">--mlp-width</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;mlp_width&gt;</span></span><a class="headerlink" href="#cmdoption-careless-mono-mlp-width" title="Link to this definition"></a></dt>
+<dd><p>The width of the hidden layers of the neural net. This defaults to the dimensionality of the metadata array.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-mono-image-layers">
+<span class="sig-name descname"><span class="pre">--image-layers</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;image_layers&gt;</span></span><a class="headerlink" href="#cmdoption-careless-mono-image-layers" title="Link to this definition"></a></dt>
+<dd><p>Add additional layers with local image-specific parameters.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-mono-disable-image-scales">
+<span class="sig-name descname"><span class="pre">--disable-image-scales</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-careless-mono-disable-image-scales" title="Link to this definition"></a></dt>
+<dd><p>Do not learn a local scale param for each image.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-mono-run-eagerly">
+<span class="sig-name descname"><span class="pre">--run-eagerly</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-careless-mono-run-eagerly" title="Link to this definition"></a></dt>
+<dd><p>Running tensorflow in eager mode may be required for high memory models.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-mono-disable-gpu">
+<span class="sig-name descname"><span class="pre">--disable-gpu</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-careless-mono-disable-gpu" title="Link to this definition"></a></dt>
+<dd><p>Disable GPU for high memory models.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-mono-gpu-id">
+<span class="sig-name descname"><span class="pre">--gpu-id</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;gpu_id&gt;</span></span><a class="headerlink" href="#cmdoption-careless-mono-gpu-id" title="Link to this definition"></a></dt>
+<dd><p>Specify the physical device used for acceleration. This is an integer from0 to num accelerators - 1. The default is zero. If <code class="xref py py-obj docutils literal notranslate"><span class="pre">--disable-gpu</span></code> is set,this option is ignored.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-mono-disable-memory-growth">
+<span class="sig-name descname"><span class="pre">--disable-memory-growth</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-careless-mono-disable-memory-growth" title="Link to this definition"></a></dt>
+<dd><p>Disable the experimental dynamic memory allocation.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-mono-tf-debug">
+<span class="sig-name descname"><span class="pre">--tf-debug</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-careless-mono-tf-debug" title="Link to this definition"></a></dt>
+<dd><p>Increase the TensorFlow log verbosity by setting the TF_CPP_MIN_LOG_LEVEL environment variable.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-mono-seed">
+<span class="sig-name descname"><span class="pre">--seed</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;seed&gt;</span></span><a class="headerlink" href="#cmdoption-careless-mono-seed" title="Link to this definition"></a></dt>
+<dd><p>Random number seed for consistent sampling.</p>
+</dd></dl>
+
+</section>
+<section id="careless-poly">
+<h3>careless poly<a class="headerlink" href="#careless-poly" title="Link to this heading"></a></h3>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">usage: careless poly [-h] [-l lambda_min lambda_max] [-w WAVELENGTH_KEY]</span>
+<span class="go">                     [--embed] [--mc-samples MC_SAMPLES]</span>
+<span class="go">                     [--structure-factor-file STRUCTURE_FACTOR_FILE]</span>
+<span class="go">                     [--freeze-structure-factors]</span>
+<span class="go">                     [--structure-factor-init-scale STRUCTURE_FACTOR_INIT_SCALE]</span>
+<span class="go">                     [--epsilon EPSILON] [--disable-metadata-standardization]</span>
+<span class="go">                     [--disable-progress-bar] [--test-fraction TEST_FRACTION]</span>
+<span class="go">                     [--merge-half-datasets]</span>
+<span class="go">                     [--half-dataset-repeats HALF_DATASET_REPEATS]</span>
+<span class="go">                     [--validation-frequency VALIDATION_FREQUENCY]</span>
+<span class="go">                     [-c ISIGI_CUTOFF] [-d DMIN] [--spacegroups SPACEGROUPS]</span>
+<span class="go">                     [--image-key IMAGE_KEY] [--intensity-key INTENSITY_KEY]</span>
+<span class="go">                     [--uncertainty-key UNCERTAINTY_KEY] [--anomalous]</span>
+<span class="go">                     [--separate-files] [--studentt-likelihood-dof DOF]</span>
+<span class="go">                     [--refine-uncertainties] [--iterations ITERATIONS]</span>
+<span class="go">                     [--learning-rate LEARNING_RATE] [--beta-1 BETA_1]</span>
+<span class="go">                     [--beta-2 BETA_2]</span>
+<span class="go">                     [--positional-encoding-keys POSITIONAL_ENCODING_KEYS]</span>
+<span class="go">                     [--positional-encoding-frequencies POSITIONAL_ENCODING_FREQUENCIES]</span>
+<span class="go">                     [--kl-weight KL_WEIGHT] [--wilson-prior-b WILSON_PRIOR_B]</span>
+<span class="go">                     [--double-wilson-r DWR] [--double-wilson-parents PARENTS]</span>
+<span class="go">                     [--scale-file SCALE_FILE] [--freeze-scales]</span>
+<span class="go">                     [--mlp-layers MLP_LAYERS] [--mlp-width MLP_WIDTH]</span>
+<span class="go">                     [--image-layers IMAGE_LAYERS] [--disable-image-scales]</span>
+<span class="go">                     [--run-eagerly] [--disable-gpu] [--gpu-id GPU_ID]</span>
+<span class="go">                     [--disable-memory-growth] [--tf-debug] [--seed SEED]</span>
+<span class="go">                     metadata_keys reflections.{mtz,stream}</span>
+<span class="go">                     [reflections.{mtz,stream} ...] out</span>
+</pre></div>
+</div>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-poly-arg-metadata_keys">
+<span class="sig-name descname"><span class="pre">metadata_keys</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-careless-poly-arg-metadata_keys" title="Link to this definition"></a></dt>
+<dd><p>Metadata keys for scaling. This is expected to be a comma delimitted string</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-poly-arg-reflections">
+<span class="sig-name descname"><span class="pre">reflections</span></span><span class="sig-prename descclassname"><span class="pre">.{mtz,stream}</span></span><a class="headerlink" href="#cmdoption-careless-poly-arg-reflections" title="Link to this definition"></a></dt>
+<dd><p>Mtz or stream file(s) containing unmerged reflection observations. If you are supplying stream files, you must also use the –spacegroups option to supply the symmetry for merging.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-poly-arg-out">
+<span class="sig-name descname"><span class="pre">out</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-careless-poly-arg-out" title="Link to this definition"></a></dt>
+<dd><p>Output filename base.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-poly-h">
+<span id="cmdoption-careless-poly-help"></span><span class="sig-name descname"><span class="pre">-h</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--help</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-careless-poly-h" title="Link to this definition"></a></dt>
+<dd><p>show this help message and exit</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-poly-l">
+<span id="cmdoption-careless-poly-wavelength-range"></span><span class="sig-name descname"><span class="pre">-l</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;lambda_min&gt;</span> <span class="pre">&lt;lambda_max&gt;</span></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--wavelength-range</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;lambda_min&gt;</span> <span class="pre">&lt;lambda_max&gt;</span></span><a class="headerlink" href="#cmdoption-careless-poly-l" title="Link to this definition"></a></dt>
+<dd><p>Minimum and maximum wavelength for harmonic deconvolution in Ångstroms. If this is not supplied, Harmonics will be predicted out to the minimum and maximum wavelengths recorded in the mtz.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-poly-w">
+<span id="cmdoption-careless-poly-wavelength-key"></span><span class="sig-name descname"><span class="pre">-w</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;wavelength_key&gt;</span></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--wavelength-key</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;wavelength_key&gt;</span></span><a class="headerlink" href="#cmdoption-careless-poly-w" title="Link to this definition"></a></dt>
+<dd><p>Mtz column name corresponding to the reflections’ peak wavelength.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-poly-embed">
+<span class="sig-name descname"><span class="pre">--embed</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-careless-poly-embed" title="Link to this definition"></a></dt>
+<dd><p>Drop to an IPython shell at the end of optimization to inpsect variables.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-poly-mc-samples">
+<span class="sig-name descname"><span class="pre">--mc-samples</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;mc_samples&gt;</span></span><a class="headerlink" href="#cmdoption-careless-poly-mc-samples" title="Link to this definition"></a></dt>
+<dd><p>This is the number of samples to take per gradient step with default 1.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-poly-structure-factor-file">
+<span class="sig-name descname"><span class="pre">--structure-factor-file</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;structure_factor_file&gt;</span></span><a class="headerlink" href="#cmdoption-careless-poly-structure-factor-file" title="Link to this definition"></a></dt>
+<dd><p>Initialize the structure factors from the ouput of a previous run. This argument should be a string beginning with the base filename used in the previous run and ending in _structure_factor.  For instance, if the previous run was called with <code class="xref py py-obj docutils literal notranslate"><span class="pre">careless</span> <span class="pre">mono</span> <span class="pre">[...]</span> <span class="pre">merge/hewl</span></code>, the appropriate filename to use would be merge/hewl_structure_factor.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-poly-freeze-structure-factors">
+<span class="sig-name descname"><span class="pre">--freeze-structure-factors</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-careless-poly-freeze-structure-factors" title="Link to this definition"></a></dt>
+<dd><p>Do not optimize the structure factors.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-poly-structure-factor-init-scale">
+<span class="sig-name descname"><span class="pre">--structure-factor-init-scale</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;structure_factor_init_scale&gt;</span></span><a class="headerlink" href="#cmdoption-careless-poly-structure-factor-init-scale" title="Link to this definition"></a></dt>
+<dd><p>A floating point number usually between 0 and 1. The width of the initial structure factor distribution is this timesthe standard deviation of the prior distribution. The default is 1.0.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-poly-epsilon">
+<span class="sig-name descname"><span class="pre">--epsilon</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;epsilon&gt;</span></span><a class="headerlink" href="#cmdoption-careless-poly-epsilon" title="Link to this definition"></a></dt>
+<dd><p>A small constant added to the scale parameters of variational distributions  for numerical stability. The default is 1e-7.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-poly-disable-metadata-standardization">
+<span class="sig-name descname"><span class="pre">--disable-metadata-standardization</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-careless-poly-disable-metadata-standardization" title="Link to this definition"></a></dt>
+<dd><p>By default careless will convert metadata to z-scores. This flag disables that behavior. In general, unstandardized metadata will lead to unstable optimization. However, this flag might be useful if the user wants to use their own normalization scheme.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-poly-disable-progress-bar">
+<span class="sig-name descname"><span class="pre">--disable-progress-bar</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-careless-poly-disable-progress-bar" title="Link to this definition"></a></dt>
+<dd><p>Disable the progress bar. This is helpful if you’re logging stderr.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-poly-test-fraction">
+<span class="sig-name descname"><span class="pre">--test-fraction</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;test_fraction&gt;</span></span><a class="headerlink" href="#cmdoption-careless-poly-test-fraction" title="Link to this definition"></a></dt>
+<dd><p>Output model predictions for a held-out fraction of data. This should be used for model selection purposes. By default, no data will be held out during training.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-poly-merge-half-datasets">
+<span class="sig-name descname"><span class="pre">--merge-half-datasets</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-careless-poly-merge-half-datasets" title="Link to this definition"></a></dt>
+<dd><p>After training, split the data in half randomly by image and merge each half using the scaling model learned on the training fraction. The output of the halves will be written to a file which can be used to estimate traditional CChalf type measures. The full data set will always be used to generate half data sets irrespective of the test fraction. One file is written for each merged mtz. The files have the <a href="#id3"><span class="problematic" id="id4">*</span></a>_xval_#.mtz suffix.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-poly-half-dataset-repeats">
+<span class="sig-name descname"><span class="pre">--half-dataset-repeats</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;half_dataset_repeats&gt;</span></span><a class="headerlink" href="#cmdoption-careless-poly-half-dataset-repeats" title="Link to this definition"></a></dt>
+<dd><p>Number of times to Repeat the half dataset crossvalidation. By default this is one.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-poly-validation-frequency">
+<span class="sig-name descname"><span class="pre">--validation-frequency</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;validation_frequency&gt;</span></span><a class="headerlink" href="#cmdoption-careless-poly-validation-frequency" title="Link to this definition"></a></dt>
+<dd><p>During training, set how frequently to evaluate the model on the test set. This is an integer &gt;= 1 which defaults to 10 for once every 10 steps.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-poly-c">
+<span id="cmdoption-careless-poly-isigi-cutoff"></span><span class="sig-name descname"><span class="pre">-c</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;isigi_cutoff&gt;</span></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--isigi-cutoff</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;isigi_cutoff&gt;</span></span><a class="headerlink" href="#cmdoption-careless-poly-c" title="Link to this definition"></a></dt>
+<dd><p>Minimum I over Sigma(I) for included reflections. Default is to include all reflections</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-poly-d">
+<span id="cmdoption-careless-poly-dmin"></span><span class="sig-name descname"><span class="pre">-d</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;dmin&gt;</span></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--dmin</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;dmin&gt;</span></span><a class="headerlink" href="#cmdoption-careless-poly-d" title="Link to this definition"></a></dt>
+<dd><p>Maximum resolution in Ångstroms. If this is not supplied,reflections will be merged out to the highest resolution reflection present in the input.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-poly-spacegroups">
+<span class="sig-name descname"><span class="pre">--spacegroups</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;spacegroups&gt;</span></span><a class="headerlink" href="#cmdoption-careless-poly-spacegroups" title="Link to this definition"></a></dt>
+<dd><p>The spacegroup(s) to use for merging. You may either supply a single spacegroup which will be used for every input reflection file or a comma-separated list of spacegroups with the same length as the number of reflection files. For example –spacegroups=”P 21 21 21” or –spacegroups=”P 21 21 21,P 1 21 1”</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-poly-image-key">
+<span class="sig-name descname"><span class="pre">--image-key</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;image_key&gt;</span></span><a class="headerlink" href="#cmdoption-careless-poly-image-key" title="Link to this definition"></a></dt>
+<dd><p>The name of the key indicating image number for each data set. If no key is given, careless will use the first key with the BATCH dtype.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-poly-intensity-key">
+<span class="sig-name descname"><span class="pre">--intensity-key</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;intensity_key&gt;</span></span><a class="headerlink" href="#cmdoption-careless-poly-intensity-key" title="Link to this definition"></a></dt>
+<dd><p>What key to use for reflection intensities. If no key is given, careless will use the first key with the intensity dtype.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-poly-uncertainty-key">
+<span class="sig-name descname"><span class="pre">--uncertainty-key</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;uncertainty_key&gt;</span></span><a class="headerlink" href="#cmdoption-careless-poly-uncertainty-key" title="Link to this definition"></a></dt>
+<dd><p>What key to use for reflection error estimates. If no key is given, careless will first check for a key beginning with ‘SIG’ or ‘Sig’ which matches the intensity key (e.g. Iobs -&gt; SigIobs). Failing that, careless will ust first key with the StdDev dtype.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-poly-anomalous">
+<span class="sig-name descname"><span class="pre">--anomalous</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-careless-poly-anomalous" title="Link to this definition"></a></dt>
+<dd><p>If this flag is supplied, Friedel mates will be kept separate.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-poly-separate-files">
+<span class="sig-name descname"><span class="pre">--separate-files</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-careless-poly-separate-files" title="Link to this definition"></a></dt>
+<dd><p>Use this flag to produce a separate output for each input mtz.In this mode, the data will be ‘scaled’ together and ‘merged’ separately.The default is to merge all the files into a single output.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-poly-studentt-likelihood-dof">
+<span class="sig-name descname"><span class="pre">--studentt-likelihood-dof</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;dof&gt;</span></span><a class="headerlink" href="#cmdoption-careless-poly-studentt-likelihood-dof" title="Link to this definition"></a></dt>
+<dd><p>Degrees of freedom for student t likelihood function.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-poly-refine-uncertainties">
+<span class="sig-name descname"><span class="pre">--refine-uncertainties</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-careless-poly-refine-uncertainties" title="Link to this definition"></a></dt>
+<dd><p>Use Evans’ 2011 error model from SCALA to correct uncertainties.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-poly-iterations">
+<span class="sig-name descname"><span class="pre">--iterations</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;iterations&gt;</span></span><a class="headerlink" href="#cmdoption-careless-poly-iterations" title="Link to this definition"></a></dt>
+<dd><p>Number of gradient steps to take.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-poly-learning-rate">
+<span class="sig-name descname"><span class="pre">--learning-rate</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;learning_rate&gt;</span></span><a class="headerlink" href="#cmdoption-careless-poly-learning-rate" title="Link to this definition"></a></dt>
+<dd><p>Adam learning rate. The default is 0.001</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-poly-beta-1">
+<span class="sig-name descname"><span class="pre">--beta-1</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;beta_1&gt;</span></span><a class="headerlink" href="#cmdoption-careless-poly-beta-1" title="Link to this definition"></a></dt>
+<dd><p>Adam beta_1 param. The default is 0.9</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-poly-beta-2">
+<span class="sig-name descname"><span class="pre">--beta-2</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;beta_2&gt;</span></span><a class="headerlink" href="#cmdoption-careless-poly-beta-2" title="Link to this definition"></a></dt>
+<dd><p>Adam beta_2 param. The default is 0.99</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-poly-positional-encoding-keys">
+<span class="sig-name descname"><span class="pre">--positional-encoding-keys</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;positional_encoding_keys&gt;</span></span><a class="headerlink" href="#cmdoption-careless-poly-positional-encoding-keys" title="Link to this definition"></a></dt>
+<dd><p>If the <code class="xref py py-obj docutils literal notranslate"><span class="pre">--positional-encoding-frequencies</span></code> flag is set to an integer &gt; 1, this parameter enables encoding a specific subset ofof mtz columns. Supply a comma separated string of metadata keys (ie “XDET,YDET”), and these keys will be encoded separately and appended to the rest of the metadata.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-poly-positional-encoding-frequencies">
+<span id="cmdoption-careless-poly-L"></span><span class="sig-name descname"><span class="pre">--positional-encoding-frequencies</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;positional_encoding_frequencies&gt;</span></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">-L</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;positional_encoding_frequencies&gt;</span></span><a class="headerlink" href="#cmdoption-careless-poly-positional-encoding-frequencies" title="Link to this definition"></a></dt>
+<dd><p>Number of positional encoding frequencies to apply to metadata. If you use this option, it should be paired with ‘mlp-width=’ in order to prevent the model from using too much memory.By default all metadata columns will be encoded using the same formula. To encode a subset of the columns, please seethe <code class="xref py py-obj docutils literal notranslate"><span class="pre">--positional-encoding-keys</span></code> parameter</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-poly-kl-weight">
+<span class="sig-name descname"><span class="pre">--kl-weight</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;kl_weight&gt;</span></span><a class="headerlink" href="#cmdoption-careless-poly-kl-weight" title="Link to this definition"></a></dt>
+<dd><p>Set the weight of the kl divergence term relative to the likliehood. By default, by default this is based purely on the number of reflections.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-poly-wilson-prior-b">
+<span class="sig-name descname"><span class="pre">--wilson-prior-b</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;wilson_prior_b&gt;</span></span><a class="headerlink" href="#cmdoption-careless-poly-wilson-prior-b" title="Link to this definition"></a></dt>
+<dd><p>This flag enables learning reflections on a particular Wilson scale. By default, the Wilson prior is flat across resolution bins.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-poly-double-wilson-r">
+<span class="sig-name descname"><span class="pre">--double-wilson-r</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;dwr&gt;</span></span><a class="headerlink" href="#cmdoption-careless-poly-double-wilson-r" title="Link to this definition"></a></dt>
+<dd><p>For each input mtz, designate a prior correlation coefficient with its parent. Supply one float for each file separated by commas. Supply zero for each root node.for example, –double-wilson-r=0.,0.9.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-poly-double-wilson-parents">
+<span class="sig-name descname"><span class="pre">--double-wilson-parents</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;parents&gt;</span></span><a class="headerlink" href="#cmdoption-careless-poly-double-wilson-parents" title="Link to this definition"></a></dt>
+<dd><p>For each input mtz, designate a parent upon which its prior is conditioned. Supply one integer for each file separated by commas. Supply None for root nodeswhich follow single Wilson priors. for example, –double-wilson-parents=None,0</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-poly-scale-file">
+<span class="sig-name descname"><span class="pre">--scale-file</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;scale_file&gt;</span></span><a class="headerlink" href="#cmdoption-careless-poly-scale-file" title="Link to this definition"></a></dt>
+<dd><p>Initialize the scale model weights from the ouput of a previous run. This argument should be a string beginning with the base filename used in the previous run and ending in _scale.  For instance, if the previous run was called with <code class="xref py py-obj docutils literal notranslate"><span class="pre">careless</span> <span class="pre">mono</span> <span class="pre">[...]</span> <span class="pre">merge/hewl</span></code>, the appropriate file name would be merge/hewl_scale.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-poly-freeze-scales">
+<span class="sig-name descname"><span class="pre">--freeze-scales</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-careless-poly-freeze-scales" title="Link to this definition"></a></dt>
+<dd><p>Do not optimize the scale model weights.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-poly-mlp-layers">
+<span class="sig-name descname"><span class="pre">--mlp-layers</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;mlp_layers&gt;</span></span><a class="headerlink" href="#cmdoption-careless-poly-mlp-layers" title="Link to this definition"></a></dt>
+<dd><p>The number of dense neural network layers in the scaling model. The default is 20 layers.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-poly-mlp-width">
+<span class="sig-name descname"><span class="pre">--mlp-width</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;mlp_width&gt;</span></span><a class="headerlink" href="#cmdoption-careless-poly-mlp-width" title="Link to this definition"></a></dt>
+<dd><p>The width of the hidden layers of the neural net. This defaults to the dimensionality of the metadata array.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-poly-image-layers">
+<span class="sig-name descname"><span class="pre">--image-layers</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;image_layers&gt;</span></span><a class="headerlink" href="#cmdoption-careless-poly-image-layers" title="Link to this definition"></a></dt>
+<dd><p>Add additional layers with local image-specific parameters.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-poly-disable-image-scales">
+<span class="sig-name descname"><span class="pre">--disable-image-scales</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-careless-poly-disable-image-scales" title="Link to this definition"></a></dt>
+<dd><p>Do not learn a local scale param for each image.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-poly-run-eagerly">
+<span class="sig-name descname"><span class="pre">--run-eagerly</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-careless-poly-run-eagerly" title="Link to this definition"></a></dt>
+<dd><p>Running tensorflow in eager mode may be required for high memory models.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-poly-disable-gpu">
+<span class="sig-name descname"><span class="pre">--disable-gpu</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-careless-poly-disable-gpu" title="Link to this definition"></a></dt>
+<dd><p>Disable GPU for high memory models.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-poly-gpu-id">
+<span class="sig-name descname"><span class="pre">--gpu-id</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;gpu_id&gt;</span></span><a class="headerlink" href="#cmdoption-careless-poly-gpu-id" title="Link to this definition"></a></dt>
+<dd><p>Specify the physical device used for acceleration. This is an integer from0 to num accelerators - 1. The default is zero. If <code class="xref py py-obj docutils literal notranslate"><span class="pre">--disable-gpu</span></code> is set,this option is ignored.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-poly-disable-memory-growth">
+<span class="sig-name descname"><span class="pre">--disable-memory-growth</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-careless-poly-disable-memory-growth" title="Link to this definition"></a></dt>
+<dd><p>Disable the experimental dynamic memory allocation.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-poly-tf-debug">
+<span class="sig-name descname"><span class="pre">--tf-debug</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-careless-poly-tf-debug" title="Link to this definition"></a></dt>
+<dd><p>Increase the TensorFlow log verbosity by setting the TF_CPP_MIN_LOG_LEVEL environment variable.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless-poly-seed">
+<span class="sig-name descname"><span class="pre">--seed</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;seed&gt;</span></span><a class="headerlink" href="#cmdoption-careless-poly-seed" title="Link to this definition"></a></dt>
+<dd><p>Random number seed for consistent sampling.</p>
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Careless" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="stats.html" class="btn btn-neutral float-right" title="Other utilites" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Kevin M. Dalton.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

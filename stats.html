@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Other utilites &mdash; careless</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="shortcut icon" href="_static/rs-favicon_32x32.png"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=943c5b23"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Double Wilson Prior Calculations in careless" href="double_wilson.html" />
+    <link rel="prev" title="The careless command-line interface" href="careless.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            careless
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="careless.html">careless CLI</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Other utilites</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#careless-cchalf">careless.cchalf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#careless-ccanom">careless.ccanom</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#careless-ccpred">careless.ccpred</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#careless-completeness">careless.completeness</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#careless-history">careless.history</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#careless-prior-b">careless.prior_b</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#careless-rescale">careless.rescale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#careless-rsplit">careless.rsplit</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="double_wilson.html">The &quot;Double Wilson&quot; algorithm</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">careless</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Other utilites</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/stats.md" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="other-utilites">
+<h1>Other utilites<a class="headerlink" href="#other-utilites" title="Link to this heading"></a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">careless</span></code> includes a number of command-line utilities for performing common analyses and of <code class="docutils literal notranslate"><span class="pre">careless</span></code> outputs. These utilities and their command-line usage are documented below.</p>
+<section id="careless-cchalf">
+<h2>careless.cchalf<a class="headerlink" href="#careless-cchalf" title="Link to this heading"></a></h2>
+<p>Compute CChalf from careless output.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">usage: careless.cchalf [-h] [-s] [-i IMAGE] [-o OUTPUT]</span>
+<span class="go">                       [-m {spearman,pearson}] [-b BINS] [--overall]</span>
+<span class="go">                       mtz [mtz ...]</span>
+</pre></div>
+</div>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless.cchalf-arg-mtz">
+<span class="sig-name descname"><span class="pre">mtz</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-careless.cchalf-arg-mtz" title="Link to this definition"></a></dt>
+<dd><p>MTZs containing crossvalidation data from careless</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless.cchalf-h">
+<span id="cmdoption-careless.cchalf-help"></span><span class="sig-name descname"><span class="pre">-h</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--help</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-careless.cchalf-h" title="Link to this definition"></a></dt>
+<dd><p>show this help message and exit</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless.cchalf-s">
+<span id="cmdoption-careless.cchalf-show"></span><span class="sig-name descname"><span class="pre">-s</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--show</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-careless.cchalf-s" title="Link to this definition"></a></dt>
+<dd><p>Make a plot of the results and display it using matplotlib.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless.cchalf-i">
+<span id="cmdoption-careless.cchalf-image"></span><span class="sig-name descname"><span class="pre">-i</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;image&gt;</span></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--image</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;image&gt;</span></span><a class="headerlink" href="#cmdoption-careless.cchalf-i" title="Link to this definition"></a></dt>
+<dd><p>Make a plot of the results and save it to this filename. The filetype will be determined from the filename. Any filetype supported by your matplotlib version will be available.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless.cchalf-o">
+<span id="cmdoption-careless.cchalf-output"></span><span class="sig-name descname"><span class="pre">-o</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;output&gt;</span></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--output</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;output&gt;</span></span><a class="headerlink" href="#cmdoption-careless.cchalf-o" title="Link to this definition"></a></dt>
+<dd><p>Optionally save results to this file in csv format instead of printing them to the terminal.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless.cchalf-m">
+<span id="cmdoption-careless.cchalf-method"></span><span class="sig-name descname"><span class="pre">-m</span></span><span class="sig-prename descclassname"> <span class="pre">{spearman,pearson}</span></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--method</span></span><span class="sig-prename descclassname"> <span class="pre">{spearman,pearson}</span></span><a class="headerlink" href="#cmdoption-careless.cchalf-m" title="Link to this definition"></a></dt>
+<dd><p>Method for computing correlation coefficient (spearman or pearson). The Pearson CC uses maximum-likelihood weights. Pearson is the default.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless.cchalf-b">
+<span id="cmdoption-careless.cchalf-bins"></span><span class="sig-name descname"><span class="pre">-b</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;bins&gt;</span></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--bins</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;bins&gt;</span></span><a class="headerlink" href="#cmdoption-careless.cchalf-b" title="Link to this definition"></a></dt>
+<dd><p>Number of resolution bins to use, the default is 10.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless.cchalf-overall">
+<span class="sig-name descname"><span class="pre">--overall</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-careless.cchalf-overall" title="Link to this definition"></a></dt>
+<dd><p>Pool all prediction mtz files into a single calculation rather than treating each file individually.</p>
+</dd></dl>
+
+</section>
+<section id="careless-ccanom">
+<h2>careless.ccanom<a class="headerlink" href="#careless-ccanom" title="Link to this heading"></a></h2>
+<p>Compute CCanom from careless output.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">usage: careless.ccanom [-h] [-s] [-i IMAGE] [-o OUTPUT]</span>
+<span class="go">                       [-m {pearson,spearman}] [-b BINS] [--overall]</span>
+<span class="go">                       mtz [mtz ...]</span>
+</pre></div>
+</div>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless.ccanom-arg-mtz">
+<span class="sig-name descname"><span class="pre">mtz</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-careless.ccanom-arg-mtz" title="Link to this definition"></a></dt>
+<dd><p>MTZs containing crossvalidation data from careless</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless.ccanom-h">
+<span id="cmdoption-careless.ccanom-help"></span><span class="sig-name descname"><span class="pre">-h</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--help</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-careless.ccanom-h" title="Link to this definition"></a></dt>
+<dd><p>show this help message and exit</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless.ccanom-s">
+<span id="cmdoption-careless.ccanom-show"></span><span class="sig-name descname"><span class="pre">-s</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--show</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-careless.ccanom-s" title="Link to this definition"></a></dt>
+<dd><p>Make a plot of the results and display it using matplotlib.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless.ccanom-i">
+<span id="cmdoption-careless.ccanom-image"></span><span class="sig-name descname"><span class="pre">-i</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;image&gt;</span></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--image</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;image&gt;</span></span><a class="headerlink" href="#cmdoption-careless.ccanom-i" title="Link to this definition"></a></dt>
+<dd><p>Make a plot of the results and save it to this filename. The filetype will be determined from the filename. Any filetype supported by your matplotlib version will be available.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless.ccanom-o">
+<span id="cmdoption-careless.ccanom-output"></span><span class="sig-name descname"><span class="pre">-o</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;output&gt;</span></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--output</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;output&gt;</span></span><a class="headerlink" href="#cmdoption-careless.ccanom-o" title="Link to this definition"></a></dt>
+<dd><p>Optionally save results to this file in csv format instead of printing them to the terminal.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless.ccanom-m">
+<span id="cmdoption-careless.ccanom-method"></span><span class="sig-name descname"><span class="pre">-m</span></span><span class="sig-prename descclassname"> <span class="pre">{pearson,spearman}</span></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--method</span></span><span class="sig-prename descclassname"> <span class="pre">{pearson,spearman}</span></span><a class="headerlink" href="#cmdoption-careless.ccanom-m" title="Link to this definition"></a></dt>
+<dd><p>Method for computing correlation coefficient (spearman or pearson). The Pearson CC uses maximum-likelihood weights. Pearson is the default.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless.ccanom-b">
+<span id="cmdoption-careless.ccanom-bins"></span><span class="sig-name descname"><span class="pre">-b</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;bins&gt;</span></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--bins</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;bins&gt;</span></span><a class="headerlink" href="#cmdoption-careless.ccanom-b" title="Link to this definition"></a></dt>
+<dd><p>Number of resolution bins to use, the default is 10.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless.ccanom-overall">
+<span class="sig-name descname"><span class="pre">--overall</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-careless.ccanom-overall" title="Link to this definition"></a></dt>
+<dd><p>Pool all prediction mtz files into a single calculation rather than treating each file individually.</p>
+</dd></dl>
+
+</section>
+<section id="careless-ccpred">
+<h2>careless.ccpred<a class="headerlink" href="#careless-ccpred" title="Link to this heading"></a></h2>
+<p>Compute CCpred from careless output.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">usage: careless.ccpred [-h] [-s] [-i IMAGE] [-o OUTPUT]</span>
+<span class="go">                       [-m {pearson,spearman}] [-b BINS] [--overall]</span>
+<span class="go">                       mtz [mtz ...]</span>
+</pre></div>
+</div>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless.ccpred-arg-mtz">
+<span class="sig-name descname"><span class="pre">mtz</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-careless.ccpred-arg-mtz" title="Link to this definition"></a></dt>
+<dd><p>MTZ(s) containing prediction data from careless</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless.ccpred-h">
+<span id="cmdoption-careless.ccpred-help"></span><span class="sig-name descname"><span class="pre">-h</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--help</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-careless.ccpred-h" title="Link to this definition"></a></dt>
+<dd><p>show this help message and exit</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless.ccpred-s">
+<span id="cmdoption-careless.ccpred-show"></span><span class="sig-name descname"><span class="pre">-s</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--show</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-careless.ccpred-s" title="Link to this definition"></a></dt>
+<dd><p>Make a plot of the results and display it using matplotlib.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless.ccpred-i">
+<span id="cmdoption-careless.ccpred-image"></span><span class="sig-name descname"><span class="pre">-i</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;image&gt;</span></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--image</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;image&gt;</span></span><a class="headerlink" href="#cmdoption-careless.ccpred-i" title="Link to this definition"></a></dt>
+<dd><p>Make a plot of the results and save it to this filename. The filetype will be determined from the filename. Any filetype supported by your matplotlib version will be available.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless.ccpred-o">
+<span id="cmdoption-careless.ccpred-output"></span><span class="sig-name descname"><span class="pre">-o</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;output&gt;</span></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--output</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;output&gt;</span></span><a class="headerlink" href="#cmdoption-careless.ccpred-o" title="Link to this definition"></a></dt>
+<dd><p>Optionally save results to this file in csv format instead of printing them to the terminal.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless.ccpred-m">
+<span id="cmdoption-careless.ccpred-method"></span><span class="sig-name descname"><span class="pre">-m</span></span><span class="sig-prename descclassname"> <span class="pre">{pearson,spearman}</span></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--method</span></span><span class="sig-prename descclassname"> <span class="pre">{pearson,spearman}</span></span><a class="headerlink" href="#cmdoption-careless.ccpred-m" title="Link to this definition"></a></dt>
+<dd><p>Method for computing correlation coefficient (spearman or pearson). The Pearson CC uses maximum-likelihood weights. Pearson is the default.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless.ccpred-b">
+<span id="cmdoption-careless.ccpred-bins"></span><span class="sig-name descname"><span class="pre">-b</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;bins&gt;</span></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--bins</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;bins&gt;</span></span><a class="headerlink" href="#cmdoption-careless.ccpred-b" title="Link to this definition"></a></dt>
+<dd><p>Number of resolution bins to use, the default is 10.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless.ccpred-overall">
+<span class="sig-name descname"><span class="pre">--overall</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-careless.ccpred-overall" title="Link to this definition"></a></dt>
+<dd><p>Pool all prediction mtz files into a single calculation rather than treating each file individually.</p>
+</dd></dl>
+
+</section>
+<section id="careless-completeness">
+<h2>careless.completeness<a class="headerlink" href="#careless-completeness" title="Link to this heading"></a></h2>
+<p>Compute completeness from careless output.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">usage: careless.completeness [-h] [-s] [-i IMAGE] [-o OUTPUT] [-b BINS] mtz</span>
+</pre></div>
+</div>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless.completeness-arg-mtz">
+<span class="sig-name descname"><span class="pre">mtz</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-careless.completeness-arg-mtz" title="Link to this definition"></a></dt>
+<dd><p>MTZ containing merged data from careless</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless.completeness-h">
+<span id="cmdoption-careless.completeness-help"></span><span class="sig-name descname"><span class="pre">-h</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--help</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-careless.completeness-h" title="Link to this definition"></a></dt>
+<dd><p>show this help message and exit</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless.completeness-s">
+<span id="cmdoption-careless.completeness-show"></span><span class="sig-name descname"><span class="pre">-s</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--show</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-careless.completeness-s" title="Link to this definition"></a></dt>
+<dd><p>Make a plot of the results and display it using matplotlib.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless.completeness-i">
+<span id="cmdoption-careless.completeness-image"></span><span class="sig-name descname"><span class="pre">-i</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;image&gt;</span></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--image</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;image&gt;</span></span><a class="headerlink" href="#cmdoption-careless.completeness-i" title="Link to this definition"></a></dt>
+<dd><p>Make a plot of the results and save it to this filename. The filetype will be determined from the filename. Any filetype supported by your matplotlib version will be available.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless.completeness-o">
+<span id="cmdoption-careless.completeness-output"></span><span class="sig-name descname"><span class="pre">-o</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;output&gt;</span></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--output</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;output&gt;</span></span><a class="headerlink" href="#cmdoption-careless.completeness-o" title="Link to this definition"></a></dt>
+<dd><p>Optionally save results to this file in csv format instead of printing them to the terminal.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless.completeness-b">
+<span id="cmdoption-careless.completeness-bins"></span><span class="sig-name descname"><span class="pre">-b</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;bins&gt;</span></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--bins</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;bins&gt;</span></span><a class="headerlink" href="#cmdoption-careless.completeness-b" title="Link to this definition"></a></dt>
+<dd><p>Number of resolution bins to use, the default is 10.</p>
+</dd></dl>
+
+</section>
+<!-- ```{eval-rst}
+.. autoprogram:: careless.stats.filter_by_image_cc:parse_arguments()
+   :prog: careless.filter_by_image_cc
+``` -->
+<section id="careless-history">
+<h2>careless.history<a class="headerlink" href="#careless-history" title="Link to this heading"></a></h2>
+<p>Plot training history from careless output.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">usage: careless.history [-h] [-o O] [-s] history_csv</span>
+</pre></div>
+</div>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless.history-arg-history_csv">
+<span class="sig-name descname"><span class="pre">history_csv</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-careless.history-arg-history_csv" title="Link to this definition"></a></dt>
+<dd><p>A _history.csv file generated by careless</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless.history-h">
+<span id="cmdoption-careless.history-help"></span><span class="sig-name descname"><span class="pre">-h</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--help</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-careless.history-h" title="Link to this definition"></a></dt>
+<dd><p>show this help message and exit</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless.history-o">
+<span class="sig-name descname"><span class="pre">-o</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;o&gt;</span></span><a class="headerlink" href="#cmdoption-careless.history-o" title="Link to this definition"></a></dt>
+<dd><p>Output image file name</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless.history-s">
+<span id="cmdoption-careless.history-show"></span><span class="sig-name descname"><span class="pre">-s</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--show</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-careless.history-s" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="careless-prior-b">
+<h2>careless.prior_b<a class="headerlink" href="#careless-prior-b" title="Link to this heading"></a></h2>
+<p>Estimate the Wilson b-factor from unmerged data.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">usage: careless.prior_b [-h] [-i INTENSITY_KEY] [-s SIGMA_KEY] [-b BINS]</span>
+<span class="go">                        [-c ISIGI_CUTOFF | -d DMIN] [-x DMAX] [--plot]</span>
+<span class="go">                        input [input ...]</span>
+</pre></div>
+</div>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless.prior_b-arg-input">
+<span class="sig-name descname"><span class="pre">input</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-careless.prior_b-arg-input" title="Link to this definition"></a></dt>
+<dd><p>MTZs or stream files containing unmerged data</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless.prior_b-h">
+<span id="cmdoption-careless.prior_b-help"></span><span class="sig-name descname"><span class="pre">-h</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--help</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-careless.prior_b-h" title="Link to this definition"></a></dt>
+<dd><p>show this help message and exit</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless.prior_b-i">
+<span id="cmdoption-careless.prior_b-intensity-key"></span><span class="sig-name descname"><span class="pre">-i</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;intensity_key&gt;</span></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--intensity-key</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;intensity_key&gt;</span></span><a class="headerlink" href="#cmdoption-careless.prior_b-i" title="Link to this definition"></a></dt>
+<dd><p>Intensity column to use. The first one will be used by default.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless.prior_b-s">
+<span id="cmdoption-careless.prior_b-sigma-key"></span><span class="sig-name descname"><span class="pre">-s</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;sigma_key&gt;</span></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--sigma-key</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;sigma_key&gt;</span></span><a class="headerlink" href="#cmdoption-careless.prior_b-s" title="Link to this definition"></a></dt>
+<dd><p>Sigma intensity column to use. The first one will be used by default.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless.prior_b-b">
+<span id="cmdoption-careless.prior_b-bins"></span><span class="sig-name descname"><span class="pre">-b</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;bins&gt;</span></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--bins</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;bins&gt;</span></span><a class="headerlink" href="#cmdoption-careless.prior_b-b" title="Link to this definition"></a></dt>
+<dd><p>Number of bins into which to divide the data.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless.prior_b-c">
+<span id="cmdoption-careless.prior_b-isigi-cutoff"></span><span class="sig-name descname"><span class="pre">-c</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;isigi_cutoff&gt;</span></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--isigi-cutoff</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;isigi_cutoff&gt;</span></span><a class="headerlink" href="#cmdoption-careless.prior_b-c" title="Link to this definition"></a></dt>
+<dd><p>If this option is supplied, the script tries to estimate an appropriate resolutioncutoff from the signal to noise in resolution bins. The default value is 1.5 (I/SigI).</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless.prior_b-d">
+<span id="cmdoption-careless.prior_b-dmin"></span><span class="sig-name descname"><span class="pre">-d</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;dmin&gt;</span></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--dmin</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;dmin&gt;</span></span><a class="headerlink" href="#cmdoption-careless.prior_b-d" title="Link to this definition"></a></dt>
+<dd><p>Minimum resolution cutoff in (Å) which overrides the more automated –isigi-cutoff.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless.prior_b-x">
+<span id="cmdoption-careless.prior_b-dmax"></span><span class="sig-name descname"><span class="pre">-x</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;dmax&gt;</span></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--dmax</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;dmax&gt;</span></span><a class="headerlink" href="#cmdoption-careless.prior_b-x" title="Link to this definition"></a></dt>
+<dd><p>Maximum resolution cutoff in (Å) which defaults to infinity.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless.prior_b-plot">
+<span class="sig-name descname"><span class="pre">--plot</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-careless.prior_b-plot" title="Link to this definition"></a></dt>
+<dd><p>Make a plot of the results and display it using matplotlib.</p>
+</dd></dl>
+
+</section>
+<section id="careless-rescale">
+<h2>careless.rescale<a class="headerlink" href="#careless-rescale" title="Link to this heading"></a></h2>
+<p>Rescale careless output to match a given Wilson b-factor.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">usage: careless.rescale [-h] -b WILSON_B mtz_in mtz_out</span>
+</pre></div>
+</div>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless.rescale-arg-mtz_in">
+<span class="sig-name descname"><span class="pre">mtz_in</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-careless.rescale-arg-mtz_in" title="Link to this definition"></a></dt>
+<dd><p>MTZs file containing unmerged data</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless.rescale-arg-mtz_out">
+<span class="sig-name descname"><span class="pre">mtz_out</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-careless.rescale-arg-mtz_out" title="Link to this definition"></a></dt>
+<dd><p>Output mtz file name.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless.rescale-h">
+<span id="cmdoption-careless.rescale-help"></span><span class="sig-name descname"><span class="pre">-h</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--help</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-careless.rescale-h" title="Link to this definition"></a></dt>
+<dd><p>show this help message and exit</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless.rescale-b">
+<span id="cmdoption-careless.rescale-wilson-b"></span><span class="sig-name descname"><span class="pre">-b</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;wilson_b&gt;</span></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--wilson-b</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;wilson_b&gt;</span></span><a class="headerlink" href="#cmdoption-careless.rescale-b" title="Link to this definition"></a></dt>
+<dd><p>Target wilson b-factor.</p>
+</dd></dl>
+
+</section>
+<section id="careless-rsplit">
+<h2>careless.rsplit<a class="headerlink" href="#careless-rsplit" title="Link to this heading"></a></h2>
+<p>Compute CChalf from careless output.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">usage: careless.rsplit [-h] [-s] [-i IMAGE] [-o OUTPUT] [-b BINS] [--overall]</span>
+<span class="go">                       mtz [mtz ...]</span>
+</pre></div>
+</div>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless.rsplit-arg-mtz">
+<span class="sig-name descname"><span class="pre">mtz</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-careless.rsplit-arg-mtz" title="Link to this definition"></a></dt>
+<dd><p>MTZs containing crossvalidation data from careless</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless.rsplit-h">
+<span id="cmdoption-careless.rsplit-help"></span><span class="sig-name descname"><span class="pre">-h</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--help</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-careless.rsplit-h" title="Link to this definition"></a></dt>
+<dd><p>show this help message and exit</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless.rsplit-s">
+<span id="cmdoption-careless.rsplit-show"></span><span class="sig-name descname"><span class="pre">-s</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--show</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-careless.rsplit-s" title="Link to this definition"></a></dt>
+<dd><p>Make a plot of the results and display it using matplotlib.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless.rsplit-i">
+<span id="cmdoption-careless.rsplit-image"></span><span class="sig-name descname"><span class="pre">-i</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;image&gt;</span></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--image</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;image&gt;</span></span><a class="headerlink" href="#cmdoption-careless.rsplit-i" title="Link to this definition"></a></dt>
+<dd><p>Make a plot of the results and save it to this filename. The filetype will be determined from the filename. Any filetype supported by your matplotlib version will be available.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless.rsplit-o">
+<span id="cmdoption-careless.rsplit-output"></span><span class="sig-name descname"><span class="pre">-o</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;output&gt;</span></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--output</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;output&gt;</span></span><a class="headerlink" href="#cmdoption-careless.rsplit-o" title="Link to this definition"></a></dt>
+<dd><p>Optionally save results to this file in csv format instead of printing them to the terminal.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless.rsplit-b">
+<span id="cmdoption-careless.rsplit-bins"></span><span class="sig-name descname"><span class="pre">-b</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;bins&gt;</span></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--bins</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;bins&gt;</span></span><a class="headerlink" href="#cmdoption-careless.rsplit-b" title="Link to this definition"></a></dt>
+<dd><p>Number of resolution bins to use, the default is 10.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-careless.rsplit-overall">
+<span class="sig-name descname"><span class="pre">--overall</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-careless.rsplit-overall" title="Link to this definition"></a></dt>
+<dd><p>Pool all prediction mtz files into a single calculation rather than treating each file individually.</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="careless.html" class="btn btn-neutral float-left" title="The careless command-line interface" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="double_wilson.html" class="btn btn-neutral float-right" title="Double Wilson Prior Calculations in careless" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Kevin M. Dalton.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
